@@ -185,7 +185,7 @@ const Webdev = () => {
             </div>
           </motion.div>
         )}
-        <div className="container mx-auto p-4 flex-grow mt-4 overflow-y-auto">
+        <div className="container mx-auto p-2 flex-grow mt-4 overflow-y-auto">
   <div className="flex overflow-x-auto space-x-4 h-64">
     {products.map((product) => (
       <div
@@ -220,12 +220,12 @@ const Webdev = () => {
         }}
       >
         <p className="text-center">
-          Kontak kami untuk konsultasi lebih lanjut:{" "}
+        Klik disini {" "}
           <a
-            href="mailto:email@marketplace.com"
+            href="mailto:dfauzi250@gmail.com"
             className="text-secondary hover:text-primary"
           >
-            email@marketplace.com
+         untuk konsultasi lebih lanjut
           </a>
         </p>
       </footer>

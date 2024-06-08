@@ -118,7 +118,7 @@ const App = () => {
       <div className="relative">
         {/* Navbar */}
         <motion.nav
-          className="bg-white p-6 w-full max-w-md md:max-w-lg lg:max-w-xl text-center mb-4 mx-auto"
+          className="bg-white p-6 w-full max-w-md md:max-w-lg lg:max-w-xl text-center mb-4 mx-auto border border-black relative z-10"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -126,7 +126,6 @@ const App = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01]
           }}
-          style={{ borderColor: '#000', borderWidth: '1px', zIndex: 10, position: 'relative' }}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -142,10 +141,12 @@ const App = () => {
                 <p className="text-gray-700">Creative Enthusiast</p>
               </div>
             </div>
+            <img src="/img/sidebar.png" alt="" className="w-auto h-7 object-cover" />
           </div>
         </motion.nav>
+
         <motion.div
-          className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+          className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24 border border-black bg-[#F9ECCA] z-1"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -153,10 +154,11 @@ const App = () => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01]
           }}
-          style={{ top: 'calc(100% - 112px)', left: 'calc(1% + 3px)', backgroundColor: '#F9ECCA', borderColor: '#000', borderWidth: '1px', zIndex: 1 }}
+          style={{ top: 'calc(100% - 112px)', left: '1%' }}
         >
           {/* Div content here */}
         </motion.div>
+
       </div>
       {/* Batas Navbar  */}
 
@@ -180,8 +182,7 @@ const App = () => {
               variants={buttonVariants2}
               animate={selectedMenu === "menu2" ? "active" : "inactive"}
               onClick={() => setSelectedMenu("menu2")}
-              style={{ borderColor: '#000', borderWidth: '1px', zIndex: '10', position: 'relative' }}
-            >
+              style={{ borderColor: '#000', borderWidth: '1px', zIndex: '10', position: 'relative' }}>
               Menu 2
             </motion.button>
             <motion.button
@@ -227,15 +228,13 @@ const App = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, ease: "easeInOut" }}
               className="p-4 h-36 bg-white bg-opacity-50 rounded-lg shadow-lg"
-              style={{ borderColor: '#1A2130', borderWidth: '1px', }}
+              style={{ borderColor: '#1A2130', borderWidth: '1px' }}
             >
               <h2 className="text-xl font-bold">Butuh bantuan?</h2>
               <p className="mt-1">
-                Beberapa skill yang bisa kami tawarkan untuk membantu pekerjaan anda dari jarak jauh.</p>
+                Beberapa skill yang bisa kami tawarkan untuk membantu pekerjaan anda dari jarak jauh.
+              </p>
             </motion.div>
-
-
-
 
             <motion.div
               className="p-1 mt-3 grid grid-cols-2 gap-4"
@@ -244,7 +243,7 @@ const App = () => {
               animate="visible"
               exit="exit"
             >
-              {/* ------------------------------------------- */}
+              {/* Button 1 */}
               <div className="relative">
                 <motion.div
                   className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
@@ -252,77 +251,90 @@ const App = () => {
                 ></motion.div>
                 <motion.a
                   href="/web-developer"
-                  className=" w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
                 >
-                  <img src="/img/webdev.png" alt="" className="w-12 h-12 object-cover" />
-                  <span>Website</span>
+                  <img src="/img/webdev.png" alt="" className="w-20 h-12 object-cover" />
+                  <span className="text-white text-2xl">Website</span>
                 </motion.a>
               </div>
 
-
-              {/* ---------------------------------------- */}
-
-              {/* ------------------------------------------- */}
+              {/* Button 2 */}
               <div className="relative">
-              <motion.a
+                <motion.a
                   href="/web-developer"
-                  className=" w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
                 >
                   <img src="/img/writing.png" alt="" className="w-auto h-12 object-cover" />
-                  <span>Writing</span>
+                  <span className="text-white text-2xl">Writing</span>
                 </motion.a>
                 <motion.div
                   className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
-                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#B5C18E' }}>
-                </motion.div>
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#B5C18E' }}
+                ></motion.div>
               </div>
-              {/* ---------------------------------------- */}
 
-              {/* ------------------------------------------- */}
+              {/* Button 3 */}
               <div className="relative">
-              <motion.a
+                <motion.a
                   href="/web-developer"
-                  className=" w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
                 >
                   <img src="/img/editing.png" alt="" className="w-auto h-12 object-cover" />
-                  <span>Editing</span>
+                  <span className="text-white text-2xl">Editing</span>
                 </motion.a>
                 <motion.div
                   className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
-                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#ECCA9C' }}>
-                </motion.div>
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#ECCA9C' }}
+                ></motion.div>
               </div>
-              {/* ---------------------------------------- */}
 
-              {/* ------------------------------------------- */}
+              {/* Button 4 */}
               <div className="relative">
-              <motion.a
-                  href="/web-developer"
-                  className=" w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                <motion.a
+                  href="#"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
                 >
-                  <img src="/img/searching.png" alt="" className="w-auto h-12 object-cover" />
-                  <span>Search</span>
+                  <img src="/img/designer.png" alt="" className="w-auto h-12 object-cover" />
+                  <span className="text-white text-2xl">Design</span>
                 </motion.a>
                 <motion.div
                   className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
-                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#AD88C6' }}>
-                </motion.div>
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#AD88C6' }}
+                ></motion.div>
               </div>
-              {/* ---------------------------------------- */}
+
+              {/* Button 5 */}
+              <div className="relative col-span-2">
+
+                <motion.a
+                  href="#"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-row justify-center items-center space-x-2"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/searching.png" alt="" className="w-auto h-28 object-cover ml-[-90px]" />
+                  <span className="text-2xl text-white">Search</span>
+                </motion.a>
+
+                <motion.div
+                  className="absolute w-full h-24 text-center text-gray-700 rounded-lg shadow-lg flex flex-col justify-center items-center"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#408E91' }}
+                ></motion.div>
+
+              </div>
 
             </motion.div>
-
           </motion.div>
-
         )}
+
 
         {selectedMenu === "menu2" && (
           <motion.div>
