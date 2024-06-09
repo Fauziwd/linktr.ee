@@ -1,0 +1,38 @@
+
+  .font-retro-coming {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .retro-border-coming {
+    border: 3px solid #00FF00;
+    box-shadow: 0 0 10px #00FF00;
+  }
+
+  .retro-button-coming {
+    border: 2px solid #FF1493;
+    box-shadow: 0 0 10px #FF1493;
+  }
+
+  .text-neon-green-coming {
+    color: #00FF00;
+  }
+
+  .bg-neon-pink-coming {
+    background-color: #FF1493;
+  }
+  .bg-neon-coming {
+    background-color: #00FF00;
+  }
+
+  .hover\:bg-neon-pink-light:hover {
+    background-color: #FF69B4;
+  }
+
+.logo-bottom {
+  position: absolute;
+  bottom: -10px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: 180px; /* Adjust as needed */
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useViewportScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Sidebar from './printilan/Sidebar';
 
 const App = () => {
   const { scrollYProgress } = useViewportScroll();
@@ -114,7 +116,10 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white p-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-
+     
+      <Helmet>
+        <title>Linktrzee | Home Page</title>
+      </Helmet>
       <div className="relative">
         {/* Navbar */}
         <motion.nav
@@ -141,10 +146,14 @@ const App = () => {
                 <p className="text-gray-700">Creative Enthusiast</p>
               </div>
             </div>
+            <div class="text-center">
+           <button  type="button" data-drawer-target="drawer-top-example" data-drawer-show="drawer-top-example" data-drawer-placement="top" aria-controls="drawer-top-example">
             <img src="/img/sidebar.png" alt="" className="w-auto h-7 object-cover" />
+            </button>
+            </div>
           </div>
         </motion.nav>
-
+        <Sidebar />
         <motion.div
           className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24 border border-black bg-[#F9ECCA] z-1"
           initial={{ opacity: 0, scale: 0.5 }}
@@ -255,7 +264,7 @@ const App = () => {
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
                 >
-                  <img src="/img/webdev.png" alt="" className="w-20 h-12 object-cover" />
+                  <img src="/img/lottie/webdev.gif" alt="" className="w-12 h-12 object-cover" />
                   <span className="text-white text-2xl">Website</span>
                 </motion.a>
               </div>
@@ -263,7 +272,7 @@ const App = () => {
               {/* Button 2 */}
               <div className="relative">
                 <motion.a
-                  href="/web-developer"
+                  href="/oops"
                   className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
@@ -280,12 +289,12 @@ const App = () => {
               {/* Button 3 */}
               <div className="relative">
                 <motion.a
-                  href="/web-developer"
+                  href="/oops"
                   className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
                 >
-                  <img src="/img/editing.png" alt="" className="w-auto h-12 object-cover" />
+                  <img src="/img/lottie/editing.gif" alt="" className="w-16 h-12 object-cover" />
                   <span className="text-white text-2xl">Editing</span>
                 </motion.a>
                 <motion.div
@@ -297,7 +306,7 @@ const App = () => {
               {/* Button 4 */}
               <div className="relative">
                 <motion.a
-                  href="#"
+                  href="/oops"
                   className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
@@ -315,7 +324,7 @@ const App = () => {
               <div className="relative col-span-2">
 
                 <motion.a
-                  href="#"
+                  href="/oops"
                   className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-row justify-center items-center space-x-2"
                   variants={item}
                   style={{ borderColor: '#000', borderWidth: '1px' }}
@@ -363,45 +372,100 @@ const App = () => {
 
 
             <motion.div
-              className=" p-2 mt-3 overflow-y-auto space-y-4 flex flex-col items-center justify-center overflow-x-auto"
+              className="p-1 mt-3 grid grid-cols-2 gap-4"
               variants={container}
               initial="hidden"
               animate="visible"
               exit="exit"
-              style={{}}
             >
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-blue-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#8E7AB5', borderWidth: '1px' }}
-              >
-                Elektronik
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-green-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#97BE5A', borderWidth: '1px' }}
-              >
-                Fashion
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-red-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#B06161', borderWidth: '1px' }}
-              >
-                Food & Drink
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-purple-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#BA90C6', borderWidth: '1px' }}
-              >
-                Lain-lain
-              </motion.a>
+              {/* Button 1 */}
+              <div className="relative">
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#E1ACAC' }}
+                ></motion.div>
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/lottie/webdev.gif" alt="" className="w-12 h-12 object-cover" />
+                  <span className="text-white text-2xl">Electronik</span>
+                </motion.a>
+              </div>
+
+              {/* Button 2 */}
+              <div className="relative">
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/writing.png" alt="" className="w-auto h-12 object-cover" />
+                  <span className="text-white text-2xl">Food n Drink</span>
+                </motion.a>
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#B5C18E' }}
+                ></motion.div>
+              </div>
+
+              {/* Button 3 */}
+              <div className="relative">
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/lottie/editing.gif" alt="" className="w-16 h-12 object-cover" />
+                  <span className="text-white text-2xl">Skincare</span>
+                </motion.a>
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#ECCA9C' }}
+                ></motion.div>
+              </div>
+
+              {/* Button 4 */}
+              <div className="relative">
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/designer.png" alt="" className="w-auto h-12 object-cover" />
+                  <span className="text-white text-2xl">Fashion</span>
+                </motion.a>
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#AD88C6' }}
+                ></motion.div>
+              </div>
+
+              {/* Button 5 */}
+              <div className="relative col-span-2">
+
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-row justify-center items-center space-x-2"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/searching.png" alt="" className="w-auto h-28 object-cover ml-[-90px]" />
+                  <span className="text-2xl text-white">Unique</span>
+                </motion.a>
+
+                <motion.div
+                  className="absolute w-full h-24 text-center text-gray-700 rounded-lg shadow-lg flex flex-col justify-center items-center"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#408E91' }}
+                ></motion.div>
+
+              </div>
+
             </motion.div>
           </motion.div>
         )}
@@ -432,45 +496,100 @@ const App = () => {
             </motion.div>
 
             <motion.div
-              className=" p-2 mt-3 overflow-y-auto space-y-4 flex flex-col items-center justify-center overflow-x-auto"
+              className="p-1 mt-3 grid grid-cols-2 gap-4"
               variants={container}
               initial="hidden"
               animate="visible"
               exit="exit"
-              style={{}}
             >
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-blue-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#8E7AB5', borderWidth: '1px' }}
-              >
-                Video Editor
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-green-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#97BE5A', borderWidth: '1px' }}
-              >
-                Data Entry
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-red-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#B06161', borderWidth: '1px' }}
-              >
-                Web Developer
-              </motion.a>
-              <motion.a
-                href="#"
-                className="block w-full px-4 py-7 text-center text-white bg-purple-500 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 backdrop-filter backdrop-blur-lg bg-opacity-50"
-                variants={item}
-                style={{ borderColor: '#BA90C6', borderWidth: '1px' }}
-              >
-                Offline Part time
-              </motion.a>
+              {/* Button 1 */}
+              <div className="relative">
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#E1ACAC' }}
+                ></motion.div>
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/lottie/webdev.gif" alt="" className="w-12 h-12 object-cover" />
+                  <span className="text-white text-2xl">Web Dev</span>
+                </motion.a>
+              </div>
+
+              {/* Button 2 */}
+              <div className="relative">
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/writing.png" alt="" className="w-auto h-12 object-cover" />
+                  <span className="text-white text-2xl">Data Entry</span>
+                </motion.a>
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#B5C18E' }}
+                ></motion.div>
+              </div>
+
+              {/* Button 3 */}
+              <div className="relative">
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/lottie/editing.gif" alt="" className="w-16 h-12 object-cover" />
+                  <span className="text-white text-2xl">Editor</span>
+                </motion.a>
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#ECCA9C' }}
+                ></motion.div>
+              </div>
+
+              {/* Button 4 */}
+              <div className="relative">
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-col justify-center items-center"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/designer.png" alt="" className="w-auto h-12 object-cover" />
+                  <span className="text-white text-2xl">Designer</span>
+                </motion.a>
+                <motion.div
+                  className="absolute w-full max-w-md md:max-w-lg lg:max-w-xl h-24"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#AD88C6' }}
+                ></motion.div>
+              </div>
+
+              {/* Button 5 */}
+              <div className="relative col-span-2">
+
+                <motion.a
+                  href="/oops"
+                  className="w-full h-24 text-center text-gray-700 rounded-lg shadow-lg transform transition-transform hover:scale-105 duration-300 relative z-10 flex flex-row justify-center items-center space-x-2"
+                  variants={item}
+                  style={{ borderColor: '#000', borderWidth: '1px' }}
+                >
+                  <img src="/img/searching.png" alt="" className="w-auto h-28 object-cover ml-[-90px]" />
+                  <span className="text-2xl text-white">Other</span>
+                </motion.a>
+
+                <motion.div
+                  className="absolute w-full h-24 text-center text-gray-700 rounded-lg shadow-lg flex flex-col justify-center items-center"
+                  style={{ top: 'calc(100% - 95px)', left: 'calc(1% + 5px)', backgroundColor: '#408E91' }}
+                ></motion.div>
+
+              </div>
+
             </motion.div>
           </motion.div>
         )}

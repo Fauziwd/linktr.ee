@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "../css/webdev.css"; // pastikan Anda telah menambahkan font Pallette di sini
+import { Helmet } from "react-helmet";
 
 const Webdev = () => {
   const [info, setInfo] = useState("");
@@ -65,7 +67,8 @@ const Webdev = () => {
         {
           id: 1,
           title: "Produk 1 - Landing Page",
-          description: "Naikkan omzet bulananmu dengan menggiring pelanggan agar mau mampir ke web usahamu.",
+          description:
+            "Naikkan omzet bulananmu dengan menggiring pelanggan agar mau mampir ke web usahamu.",
           price: "$100",
           image: "https://via.placeholder.com/300",
         },
@@ -79,7 +82,8 @@ const Webdev = () => {
         {
           id: 3,
           title: "Produk 3 - Company Profile",
-          description: "Kenalkan pada dunia bahwa perusahaan anda adalah salah satu yang terbaik!",
+          description:
+            "Kenalkan pada dunia bahwa perusahaan anda adalah salah satu yang terbaik!",
           price: "$300",
           image: "https://via.placeholder.com/300",
         },
@@ -119,6 +123,9 @@ const Webdev = () => {
 
   return (
     <div className="bg-gray-100 font-sans min-h-screen flex flex-col relative">
+      <Helmet>
+        <title>Linktrzee | Jasa Web</title>
+      </Helmet>
       <motion.header
         className="bg-primary text-secondary py-10 rounded-b-lg fixed top-0 inset-x-0 z-10"
         style={{
@@ -186,31 +193,39 @@ const Webdev = () => {
           </motion.div>
         )}
         <div className="container mx-auto p-2 flex-grow mt-4 overflow-y-auto">
-  <div className="flex overflow-x-auto space-x-4 h-64">
-    {products.map((product) => (
-      <div
-        key={product.id}
-        className="bg-white border-green-800 border-2 rounded-lg shadow-lg overflow-x-auto flex-shrink-0 w-64"
-      >
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-40 object-cover"
-        />
-        <div className="p-4 overflow-y-scroll"> {/* Tambahkan overflow-y-scroll di sini */}
-          <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
-          <p className="text-gray-600 mb-2 text-sm">{product.description}</p>
-          <p className="text-lg font-semibold mb-2">
-            Harga: {product.price}
-          </p>
-          <button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-300 w-full">
-            Pesan Sekarang
-          </button>
+          <div className="flex overflow-x-auto space-x-4 h-64">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white border-green-800 border-2 rounded-lg shadow-lg overflow-x-auto flex-shrink-0 w-64"
+              >
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-4 overflow-y-scroll">
+                  {" "}
+                  {/* Tambahkan overflow-y-scroll di sini */}
+                  <h2 className="text-lg font-semibold mb-2">
+                    {product.title}
+                  </h2>
+                  <p className="text-gray-600 mb-2 text-sm">
+                    {product.description}
+                  </p>
+                  <p className="text-lg font-semibold mb-2">
+                    Harga: {product.price}
+                  </p>
+                  <Link href="/opsi-order">
+                    <button className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-300 w-full">
+                      Pesan Sekarang
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-</div>
       </div>
 
       <footer
@@ -220,12 +235,12 @@ const Webdev = () => {
         }}
       >
         <p className="text-center">
-        Klik disini {" "}
+          Klik disini{" "}
           <a
             href="mailto:dfauzi250@gmail.com"
             className="text-secondary hover:text-primary"
           >
-         untuk konsultasi lebih lanjut
+            untuk konsultasi lebih lanjut
           </a>
         </p>
       </footer>
